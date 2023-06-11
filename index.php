@@ -8,32 +8,22 @@
 
 <body>
     <div class="container mt-5">
-        <h2>Kirim Pesan</h2>
+        <h2>Kirim Pesan WhatsApp Web</h2>
+        <small style="color: blue;">Akses form ini menggunakan browser yang memiliki whatsapp web aktif</small>
         <form method="get" action="redirect.php">
-            <div class="mb-3">
+            <div class="col">
                 <label for="nomorTelepon" class="form-label">Nomor Telepon:</label>
-                <input type="text" class="form-control" id="nomorTelepon" name="nohp" placeholder="Masukkan nomor telepon" required>
+                <input type="number" class="form-control" id="nomorTelepon" name="nohp" placeholder="Masukkan nomor telepon" required>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <label for="pesanTeks" class="form-label">Pesan Teks:</label>
                 <textarea class="form-control" id="pesanTeks" name="text" placeholder="Masukkan pesan teks" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-blosk">Kirim</button>
+            <hr>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Kirim</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-
-<?php
-function ubahNomorTelepon($nomorTelepon)
-{
-    $nomorTelepon = str_replace([' ', '-'], '', $nomorTelepon);
-    if (substr($nomorTelepon, 0, 1) === '0') {
-        $nomorTelepon = '+62' . substr($nomorTelepon, 1);
-    }
-
-    return $nomorTelepon;
-}
-?>
